@@ -83,7 +83,7 @@ SELECT a.name, o.full_name FROM owners o JOIN animals a ON o.id = a.owner_id JOI
 WHERE s.name = 'Digimon' AND o.full_name = 'Jennifer Orwell';
 
 SELECT a.name, o.full_name FROM animals a JOIN owners o ON a.owner_id = o.id
-WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts IS NULL;
+WHERE o.full_name = 'Dean Winchester' AND a.escape_attempts = 0;
 
 SELECT o.full_name, COUNT(a.name) FROM owners o JOIN animals a ON o.id = a.owner_id
 GROUP BY o.full_name
