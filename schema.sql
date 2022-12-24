@@ -41,3 +41,27 @@ vet_clinic-# ADD FOREIGN KEY (species_id) REFERENCES species(id);
 ALTER TABLE animals
 vet_clinic-# ADD column owner_id INT,
 vet_clinic-# ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
+
+/* Add join table for visits and specializations */
+
+CREATE TABLE vets(
+vet_clinic(# id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+vet_clinic(# name VARCHAR(100),
+vet_clinic(# age INT,
+vet_clinic(# date_of_graduation DATE
+vet_clinic(# );
+
+CREATE TABLE specializations(
+vet_clinic(# vet_id INT NOT NULL,
+vet_clinic(# species_id INT NOT NULL,
+vet_clinic(# FOREIGN KEY (vet_id) REFERENCES vets(id),
+vet_clinic(# FOREIGN KEY (species_id) REFERENCES species(id)
+vet_clinic(# );
+
+CREATE TABLE visits(
+vet_clinic(# vet_id INT NOT NULL,
+vet_clinic(# animal_id INT NOT NULL,
+vet_clinic(# date_of_visit DATE,
+vet_clinic(# FOREIGN KEY (vet_id) REFERENCES vets(id),
+vet_clinic(# FOREIGN KEY (animal_id) REFERENCES animals(id)
+vet_clinic(# );
