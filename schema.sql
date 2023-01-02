@@ -65,3 +65,6 @@ vet_clinic(# date_of_visit DATE,
 vet_clinic(# FOREIGN KEY (vet_id) REFERENCES vets(id),
 vet_clinic(# FOREIGN KEY (animal_id) REFERENCES animals(id)
 vet_clinic(# );
+           
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
