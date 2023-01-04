@@ -23,6 +23,7 @@ CREATE TABLE invoices(
 CREATE TABLE medical_histories(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     admitted_at TIMESTAMP,
+    patient_id INT,
     FOREIGN KEY patient_id REFERENCES patients(id),
     status VARCHAR(100)
 );
@@ -30,6 +31,8 @@ CREATE TABLE medical_histories(
 -- create join table
 
 CREATE TABLE treatment_history (
+    medical_history_id INT,
+    treatment_id INT,
     FOREIGN KEY medical_history_id REFERENCES medical_histories(id),
     FOREIGN KEY treatment_id REFERENCES treatments(id)
 );
