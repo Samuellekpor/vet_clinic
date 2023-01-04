@@ -36,3 +36,16 @@ CREATE TABLE treatment_history (
     FOREIGN KEY medical_history_id REFERENCES medical_histories(id),
     FOREIGN KEY treatment_id REFERENCES treatments(id)
 );
+
+-- create invoice items table
+
+CREATE TABLE invoice_items(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    unit_price DECIMAL,
+    quantity INT,
+    total_price INT,
+    invoice_id INT,
+    FOREIGN KEY invoice_id REFERENCES invoices(id),
+    treatment_id INT,
+    FOREIGN KEY treatment_id REFERENCES treatments(id)
+)
