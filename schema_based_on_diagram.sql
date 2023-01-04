@@ -16,3 +16,20 @@ CREATE TABLE invoices(
   medical_history_id INT,
   FOREIGN KEY medical_history_id REFERENCES medical_histories(id)
  );
+
+
+-- Add medical histories table
+
+CREATE TABLE medical_histories(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    admitted_at TIMESTAMP,
+    FOREIGN KEY patient_id REFERENCES patients(id),
+    status VARCHAR(100)
+);
+
+-- create join table
+
+CREATE TABLE treatment_history (
+    FOREIGN KEY medical_history_id REFERENCES medical_histories(id),
+    FOREIGN KEY treatment_id REFERENCES treatments(id)
+);
