@@ -6,6 +6,17 @@ CREATE TABLE patients(
   date_of_birth DATE
 );
 
+-- Add medical histories table
+
+CREATE TABLE medical_histories(
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    admitted_at TIMESTAMP,
+    patient_id INT,
+    FOREIGN KEY patient_id REFERENCES patients(id),
+    status VARCHAR(100)
+);
+
+
 -- Add invoices table
 
 CREATE TABLE invoices(
@@ -18,15 +29,13 @@ CREATE TABLE invoices(
  );
 
 
--- Add medical histories table
+-- Create treatments table
 
-CREATE TABLE medical_histories(
-    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    admitted_at TIMESTAMP,
-    patient_id INT,
-    FOREIGN KEY patient_id REFERENCES patients(id),
-    status VARCHAR(100)
-);
+CREATE TABLE treatments(
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  type VARCHAR(100),
+  name VARCHAR(100)
+ );
 
 -- create join table
 
